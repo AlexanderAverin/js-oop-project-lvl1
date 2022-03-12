@@ -4,6 +4,7 @@
 [![Build](https://github.com/AlexanderAverin/js-oop-project-lvl1/actions/workflows/build.yml/badge.svg)](https://github.com/AlexanderAverin/js-oop-project-lvl1/actions/workflows/build.yml)
 
 Codeclimate:
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/66b1fd6b4014d8be187f/maintainability)](https://codeclimate.com/github/AlexanderAverin/js-oop-project-lvl1/maintainability)
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/66b1fd6b4014d8be187f/test_coverage)](https://codeclimate.com/github/AlexanderAverin/js-oop-project-lvl1/test_coverage)
