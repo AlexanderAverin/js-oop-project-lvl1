@@ -1,0 +1,27 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/AlexanderAverin/js-oop-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/AlexanderAverin/js-oop-project-lvl1/actions)",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderAverin/js-oop-project-lvl1.git"
+  },
+  "author": "Alexander Averin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexanderAverin/js-oop-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/AlexanderAverin/js-oop-project-lvl1#readme",
+  "devDependencies": {
+    "@jest/globals": "^27.5.1",
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.1.1",
+    "jest": "^27.5.1"
+  }
+}
