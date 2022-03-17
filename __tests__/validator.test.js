@@ -15,6 +15,7 @@ test('String validation', () => {
   const schema = v.string();
 
   expect(schema.isValid('')).toBe(true);
+  expect(schema.minLength(3).isValid('text')).toBe(true);
 
   schema.required();
 
