@@ -45,3 +45,23 @@ test('Number validation', () => {
   expect(schema.isValid(2)).toBe(true);
   expect(schema.isValid(-3)).toBe(false);
 });
+
+test('Array validation', () => {
+  const v = new Validator();
+  const schema = v.array();
+
+  schema.required();
+  expect(schema.isValid([])).toBe(true);
+  expect(schema.isValid([1, 2, 3])).toBe(true);
+  expect(schema.isValid(new Array(1))).toBe(true);
+
+  expect(schema.isValid()).toBe(false);
+  expect(schema.isValid('array')).toBe(false);
+  expect(schema.isValid(null)).toBe(false);
+
+  schema.sizeof(2);
+
+  expect(schema.isValid([])).toBe(false);
+  expect(schema.isValid(['text'])).toBe(false);
+  expect(schema.isValid(['text', 'anotherText'])).toBe(true);
+});

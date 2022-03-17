@@ -1,4 +1,4 @@
-class StringClass {
+class StringTypeClass {
   constructor() {
     this.validators = {
       required: (data) => typeof data === 'string' && data !== '',
@@ -13,4 +13,4 @@ class StringClass {
   }
 }
 
-export default StringClass;
+export default StringTypeClass;

@@ -1,4 +1,4 @@
-class NumberClass {
+class NumberTypeClass {
   constructor() {
     this.validators = {
       required: (data) => typeof data === 'number' && data !== 0,
@@ -8,4 +8,4 @@ class NumberClass {
   }
 }
 
-export default NumberClass;
+export default NumberTypeClass;
