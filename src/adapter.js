@@ -1,9 +1,8 @@
 /* eslint-disable func-names */
-
 class Interface {
-  constructor(dataTypeClass) {
+  constructor(dataTypeClass, extendsValidators) {
     this.checks = [];
-    const { validators } = dataTypeClass;
+    const validators = { ...dataTypeClass.validators, ...extendsValidators };
     this.validators = validators;
 
     Object.values(validators).forEach((validatorHandler) => {
@@ -19,11 +18,23 @@ class Interface {
     const { checks } = this;
     for (let i = 0; i < checks.length; i += 1) {
       const handlerFunction = checks[i];
+      if (typeof handlerFunction === 'object') {
+        if (!handlerFunction.fn(...[...handlerFunction.args, data].reverse())) {
+          return false;
+        }
+        return true;
+      }
       if (!handlerFunction(data)) {
         return false;
       }
     }
     return true;
+  }
+
+  test(validatorName, arg) {
+    const validatorFn = this.validators[validatorName];
+    this.checks = [...this.checks, { fn: validatorFn, args: [arg] }];
+    return this;
   }
 }
 

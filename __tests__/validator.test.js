@@ -80,3 +80,28 @@ test('Nested object validation', () => {
   expect(schema.isValid({ name: '', age: null })).toBe(false);
   expect(schema.isValid({ name: 'ada', age: -5 })).toBe(false);
 });
+
+test('Adding new validators', () => {
+  const v = new Validator();
+
+  const fn = (value, start) => value.startsWith(start);
+  v.addValidator('string', 'startWith', fn);
+
+  const schema = v.string().test('startWith', 'H');
+  expect(schema.isValid('exlet')).toBe(false);
+  expect(schema.isValid('Hexlet')).toBe(true);
+
+  const isPrime = (num) => {
+    for (let i = 2; i < num; i += 1) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  v.addValidator('number', 'isPrime', isPrime);
+  const schema2 = v.number().test('isPrime');
+  expect(schema2.isValid(10)).toBe(false);
+  expect(schema2.isValid(13)).toBe(true);
+});
