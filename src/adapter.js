@@ -6,12 +6,9 @@ class Interface {
     const { validators } = dataTypeClass;
     this.validators = validators;
 
-    const simpleFunctionsList = ['required', 'positive'];
     Object.values(validators).forEach((validatorHandler) => {
       this.constructor.prototype[validatorHandler.name] = function (...args) {
-        const validationFunction = simpleFunctionsList.includes(validatorHandler.name)
-          ? validatorHandler
-          : validatorHandler(...args);
+        const validationFunction = typeof validatorHandler() === 'function' ? validatorHandler(...args) : validatorHandler;
         this.checks = [...this.checks, validationFunction];
         return this;
       };

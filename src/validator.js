@@ -2,6 +2,8 @@
 import StringTypeClass from './types/string.js';
 import NumberTypeClass from './types/number.js';
 import ArrayTypeClass from './types/array.js';
+import ObjectTypeClass from './types/object.js';
+
 import Interface from './adapter.js';
 
 class Validator {
@@ -15,6 +17,10 @@ class Validator {
 
   array() {
     return new Interface(new ArrayTypeClass());
+  }
+
+  object() {
+    return new Interface(new ObjectTypeClass());
   }
 }
 
